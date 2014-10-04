@@ -1,2 +1,4 @@
 newvideo:
-	hugo new video/`date +'%s'`.md
+	export FILENAME=`date +'video/%FT%H%M%S.md'`; \
+	hugo new $$FILENAME; \
+	git add content/$$FILENAME
