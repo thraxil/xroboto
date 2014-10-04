@@ -1,0 +1,7 @@
+{{ partial "header.html" . }}
+<h1><a href="/artists/">Artist</a>: {{ .Title }}</h1>
+
+{{ range .Data.Pages }}
+{{ .Render "summary" }}
+{{ end }}
+{{ partial "footer.html" . }}
