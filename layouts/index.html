@@ -1,0 +1,9 @@
+{{ partial "header.html" . }}
+
+<h1>xroboto</h1>
+
+{{ range first 10 .Data.Pages }}
+{{ .Render "summary" }}
+{{ end }}
+
+{{ partial "footer.html" . }}

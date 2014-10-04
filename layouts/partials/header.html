@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+
+    {{ partial "meta.html" . }}
+
+    <title> {{ .Title }} : xroboto </title>
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{ if .RSSlink }}<link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />{{ end }}
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-glyphicons.css"/>
+<link type="text/css" rel="stylesheet" href="/css/main.css"></style>
+
+
+    {{ partial "head_includes.html" . }}
+</head>
+<body lang="en">
+<div class="container">
