@@ -1,6 +1,6 @@
 newvideo:
-	export FILENAME=`date +'video/%FT%H%M%S.md'`; \
-	hugo new $$FILENAME; \
+	export FILENAME=`date +'video/%Y/%m/%d/%H%M%S.md'`; \
+	hugo new $$FILENAME --kind=video; \
 	git add content/$$FILENAME
 
 server:
