@@ -28,3 +28,9 @@ h3 a:link, h3 a:visited {
    background-color: #666;
    color: #000;
 }
+
+section {
+  color: #ccc;
+	background-color: #333;
+	padding: 2em;
+}
