@@ -1,10 +1,5 @@
 <h2>{{ range .Params.artists }}<a href="/artists/{{ . | urlize | lower }}/">{{ . }}</a>{{ end }} -
 	<a href="{{.Permalink}}">{{.Title}}</a></h2>
 
-<div class="embed video-player">
-<iframe class="youtube-player" type="text/html"
-    width="640" height="385"
-    src="http://www.youtube.com/embed/{{.Params.youtube}}"
-    allowfullscreen frameborder="0">
-</iframe>
-</div>
+{{ partial "youtube.html" .Params }}
+
