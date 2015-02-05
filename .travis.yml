@@ -4,6 +4,6 @@ before_install:
   - tar zxvf hugo_0.12_linux_amd64.tar.gz
   - mv hugo_0.12_linux_amd64/hugo_0.12_linux_amd64 hugo
 script:
-  - hugo
+  - ./hugo
 after_success:
   - rsync -e 'ssh -i xroboto_rsa' -avp --delete public/ lolrus.thraxil.org:/var/www/xroboto/
