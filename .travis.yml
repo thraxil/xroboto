@@ -3,6 +3,7 @@ before_install:
   - wget https://github.com/spf13/hugo/releases/download/v0.12/hugo_0.12_linux_amd64.tar.gz
   - tar zxvf hugo_0.12_linux_amd64.tar.gz
   - mv hugo_0.12_linux_amd64/hugo_0.12_linux_amd64 hugo
+  - echo -e "Host lolrus.thraxil.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 script:
   - ./hugo
 after_success:
