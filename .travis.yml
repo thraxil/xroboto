@@ -1,0 +1,9 @@
+before_install:
+  - openssl aes-256-cbc -K $encrypted_42099b4af021_key -iv $encrypted_42099b4af021_iv -in xroboto_rsa.enc -out xroboto_rsa -d
+  - wget https://github.com/spf13/hugo/releases/download/v0.12/hugo_0.12_linux_amd64.tar.gz
+  - tar zxvf hugo_0.12_linux_amd64.tar.gz
+  - mv hugo_0.12_linux_amd64/hugo_0.12_linux_amd64 hugo
+script:
+  - hugo
+after_success:
+  - rsync -e 'ssh -i xroboto_rsa' -avp --delete public/ lolrus.thraxil.org:/var/www/xroboto/
