@@ -7,4 +7,5 @@ before_install:
 script:
   - ./hugo
 after_success:
+  - chmod 600 xroboto_rsa
   - rsync -e 'ssh -i xroboto_rsa' -avp --delete public/ anders@lolrus.thraxil.org:/var/www/xroboto/
