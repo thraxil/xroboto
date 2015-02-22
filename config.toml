@@ -1,5 +1,6 @@
 baseurl = "http://xroboto.thraxil.org/"
 languageCode = "en-us"
 title = "xroboto"
+Paginate = 15
 [Taxonomies]
   artist = "artists"

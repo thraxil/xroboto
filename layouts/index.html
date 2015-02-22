@@ -1,6 +1,11 @@
 {{ partial "header.html" . }}
-{{ range first 10 .Data.Pages }}
+
+{{ $paginator := .Paginate .Data.Pages }}
+
+{{ range $paginator.Pages }}
 {{ .Render "summary" }}
 {{ end }}
+
+{{ template "_internal/pagination.html" . }}
 
 {{ partial "footer.html" . }}
