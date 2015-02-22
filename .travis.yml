@@ -1,8 +1,8 @@
 before_install:
   - openssl aes-256-cbc -K $encrypted_42099b4af021_key -iv $encrypted_42099b4af021_iv -in xroboto_rsa.enc -out xroboto_rsa -d
-  - wget https://github.com/spf13/hugo/releases/download/v0.12/hugo_0.12_linux_amd64.tar.gz
-  - tar zxvf hugo_0.12_linux_amd64.tar.gz
-  - mv hugo_0.12_linux_amd64/hugo_0.12_linux_amd64 hugo
+  - wget https://github.com/spf13/hugo/releases/download/v0.13/hugo_0.13_linux_amd64.tar.gz
+  - tar zxvf hugo_0.13_linux_amd64.tar.gz
+  - mv hugo_0.13_linux_amd64/hugo_0.13_linux_amd64 hugo
   - echo -e "Host lolrus.thraxil.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 script:
   - ./hugo
