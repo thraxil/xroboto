@@ -9,5 +9,5 @@ server:
 deploy:
 	rm -rf public/*
 	hugo
-	rsync -avp --delete public/ lolrus.thraxil.org:/var/www/xroboto/
+	rsync -avp --delete public/ north.thraxil.org:/var/www/xroboto/
 

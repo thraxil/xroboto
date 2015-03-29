@@ -3,9 +3,9 @@ before_install:
   - wget https://github.com/spf13/hugo/releases/download/v0.13/hugo_0.13_linux_amd64.tar.gz
   - tar zxvf hugo_0.13_linux_amd64.tar.gz
   - mv hugo_0.13_linux_amd64/hugo_0.13_linux_amd64 hugo
-  - echo -e "Host lolrus.thraxil.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - echo -e "Host north.thraxil.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 script:
   - ./hugo
 after_success:
   - chmod 600 xroboto_rsa
-  - rsync -e 'ssh -i xroboto_rsa' -avp --delete public/ anders@lolrus.thraxil.org:/var/www/xroboto/
+  - rsync -e 'ssh -i xroboto_rsa' -avp --delete public/ anders@north.thraxil.org:/var/www/xroboto/
