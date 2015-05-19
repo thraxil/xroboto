@@ -1,4 +1,57 @@
+<script>
+var index = lunr(function () {
+    this.field('title');
+    this.field('artist');
+    this.field('url');
+});
+index.ref('url');
+var videos = {};
 
+$.getJSON("/js/videos.json").done(function(data) {
+    data.forEach(function(d) {
+        index.add(d);
+        videos[d.url] = d;
+    });
+}).fail(function(jqxhr, textStatus, error) {
+    var err = textStatus + ", " + error;
+    console.error("Error getting Hugo index flie:", err);
+});
+
+$(document).ready(function () {
+   $('#search').click(function () {
+      var q = $('#q').val();
+      var results = index.search(q);
+      var $results = $('#search-results');
+      $results.empty();
+      $results.show();
+
+      if (results.length == 0) {
+          $results.html('sorry, no results found');
+      } else {
+          $results.append(
+             $("<h2>Search Results: \"" + q + "\"</h2>")
+          );
+          for (r in results.slice(0, 10)) {
+             if (results.hasOwnProperty(r)) {
+               var video = videos[results[r].ref];
+               var $result = $("<div>");
+               $result.append($("<a>", {
+                  href: video.url,
+                  text: video.title
+               }));
+               $result.append(" by ");
+               $result.append($("<a>", {
+                  href: video.artistURL,
+                  text: video.artist
+               }));
+               $results.append($result);
+             }
+          }
+      }
+      return false;
+  });
+});
+</script>
 <footer>
 </footer>
 

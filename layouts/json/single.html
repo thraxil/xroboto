@@ -1,0 +1,8 @@
+[{{ range $index, $page := .Site.Pages }}{{ if eq $page.Type "video" }}{{ if $index }},{{ end }}
+{
+   "url": "{{$page.Permalink}}",
+   "title": "{{$page.Title}}",
+   "artist": {{range $page.Params.artists}}"{{.}}"{{end}},
+   "artistURL": {{range $page.Params.artists}}"/artists/{{. | urlize | lower }}/"{{end}}
+}{{ end }}{{ end }}
+]
