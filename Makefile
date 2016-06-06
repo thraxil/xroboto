@@ -9,6 +9,7 @@ server:
 	hugo server --watch --buildDrafts --verboseLog=true -v
 
 deploy:
+	hugo version
 	rm -rf public/*
 	hugo
 	cp public/json/index.html public/js/videos.json
