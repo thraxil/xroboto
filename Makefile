@@ -9,12 +9,11 @@ all: jshint jscs
 include *.mk
 
 $(PUBLIC)/js/all.json: $(PUBLIC)/json/all/index.html
-        mkdir $(PUBLIC)/js/ || true
-        mv $< $@ && ./checkjson.py
+	mkdir $(PUBLIC)/js/ || true
+	mv $< $@ && ./checkjson.py
 
 
 newvideo:
 	export FILENAME=`date +'video/%Y/%m/%d/%H%M%S.md'`; \
 	hugo new $$FILENAME --kind=video; \
 	git add content/$$FILENAME
-
